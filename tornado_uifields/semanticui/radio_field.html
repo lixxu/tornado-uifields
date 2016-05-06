@@ -1,0 +1,11 @@
+<div class="{{ css }} fields">
+  <label>{{ _(label) if trans else label }}</label>
+  {% for i, lbl in enumerate(labels) %}
+  <div class="field">
+    <div class="ui radio checkbox">
+      <input type="radio" name="{{ name }}"{% if i == checked_idx %} checked="checked"{% end %}>
+      <label>{{ _(lbl) if trans else lbl }}</label>
+    </div>
+  </div>
+  {% end %}
+</div>

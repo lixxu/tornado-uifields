@@ -1,0 +1,6 @@
+<div class="field">
+  <div class="ui{% if checked %} checked {% end %}{% if read_only %} read-only {% end %}checkbox">
+    <input name="{{ name }}" type="checkbox" tabindex="0" class="hidden"{% if checked %}checked=""{% end %}{% if disabled %} disabled=""{% end %}>
+    <label>{{ _(label) if trans else label }}</label>
+  </div>
+</div>

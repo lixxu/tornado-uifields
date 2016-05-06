@@ -1,0 +1,26 @@
+$('{{ id }}').daterangepicker({
+  singleDatePicker: {{ single }},
+  showDropdowns: {{ show_dropdowns }},
+  applyClass: "{{ apply_class }}",
+  format: '{{ date_format }}',
+  showWeekNumbers: {{ show_weeks }},
+  {% if timezone %}timeZone: "{{ timezone }}",{% end %}
+  timePicker: {{ show_time }},
+  timePickerSeconds: {{ show_seconds }},
+  timePicker12Hour: {{ hours_12 }},
+  {% if start_date %}startDate: "{{ start_date }}",{% end %}
+  {% if end_date %}endDate: "{{ end_date }}",{% end %}
+  {% if min_date %}minDate: "{{ min_date }}",{% end %}
+  {% if max_date %}maxDate: "{{ max_date }}",{% end %}
+  locale: {
+    applyLabel: "{{ _(apply_label) if trans else apply_label }}",
+    cancelLabel: "{{ _(cancel_label) if trans else cancel_label }}",
+    fromLabel: "{{ _(from_label) if trans else from_label }}",
+    toLabel: "{{ _(to_label) if trans else to_label }}",
+    weekLabel: "{{ _(week_label) if trans else week_label }}",
+    customRangeLabel: "{{ _(custom_range_label) if trans else custom_range_label }}",
+    daysOfWeek: [{% for i, lbl in enumerate(days_of_week) %}"{{ _(lbl) if trans else lbl }}"{% if i != 6 %},{% end %}{% end %}],
+    monthNames: [{% for i, lbl in enumerate(month_names) %}"{{ _(lbl) if trans else lbl }}"{% if i != 11 %},{% end %}{% end %}],
+    firstDay: {{ first_day }}
+  }
+});

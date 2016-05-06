@@ -1,0 +1,30 @@
+$('{{ id1 }}').dropdown({
+  onChange: function(value, text, $selectedItem){
+    if (value === ""){
+      $('{{ id1 }}-dt').addClass('default');
+    }
+    $.ajax({
+      type: "GET",
+      cache: false,
+      url: "{{ reverse_url(url_name) }}",
+      data: {text_id: value },
+      dataType: "json",
+      success: function (data) {
+        {% if id2_default_text and single %}
+        var items = '<div class="item" data-value="">{{ _(id2_default_text) if trans else id2_default_text }}</div>';
+        {% else %}
+        var items = "";
+        {% end %}
+        $.each(data, function (i, row) {
+          items += '<div class="item" data-value="' + row[0] + '">' + row[1] + '</div>';
+        });
+        $('{{ id2 }}').dropdown('clear');
+        {% if id2_default_text %}
+        $('{{ id2 }}-dt').html('{{ _(id2_default_text) if trans else id2_default_text }}');
+        {% end %}
+        $('{{ id2 }} .menu').html(items);
+        $('{{ id2 }}').dropdown('refresh');
+      }
+    });
+  }
+});

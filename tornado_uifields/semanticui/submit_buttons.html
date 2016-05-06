@@ -1,0 +1,5 @@
+<div class="ui buttons">
+  <a class="ui {{ cancel_css }} button {{ loading_css }}" href="{{ url or url_for(url_name) }}">{{ _(cancel_label) if trans else cancel_label }}</a>
+  <div class="or" data-text="{{ _(or_label) if trans else or_label }}"></div>
+  <button class="ui {{ submit_css }} button {{ loading_css }}" type="submit">{{ _(submit_label) if trans else submit_label }}</button>
+</div>

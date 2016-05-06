@@ -1,0 +1,4 @@
+<div class="{{ css }} field" id="{{ name }}-field">
+  <label>{{ _(label) }}</label>
+  <input type="{{ text_type }}" name="{{ name }}" id="{{ name }}" value="{{ form.get(name, default) if form else value }}"{% if placeholder %} placeholder="{{ _(placeholder) if trans else placeholder }}" {% end %}{{ extra }}>
+</div>

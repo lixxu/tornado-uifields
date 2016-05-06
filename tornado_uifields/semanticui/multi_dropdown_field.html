@@ -1,0 +1,14 @@
+{% set hv = selected or form.get(name, '') %}
+<div class="{{ css }} field" id="{{ name }}-field">
+  <label>{{ _(label) if trans else label }}</label>
+  <div class="ui multiple {{ dw_css }} selection dropdown form-dropdown" id="{{ name }}-dw">
+    <input name="{{ name }}" type="hidden" value="{{ hv }}" id="{{ name }}">
+    <i class="dropdown icon"></i>
+    <div class="default text" id="{{ name }}-dw-dt">{{ _(default_text or label) if trans else (default_text or label) }}</div>
+    <div class="menu">
+      {% for v, lbl in selections %}
+        <div class="item" data-value="{{ v }}">{{ _(lbl) if trans else lbl }}</div>
+      {% end %}
+    </div>
+  </div>
+</div>

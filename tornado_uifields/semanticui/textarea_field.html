@@ -1,0 +1,4 @@
+<div class="{{ css }} field" id="{{ name }}-field">
+  <label>{{ _(label) if trans else label }}</label>
+  <textarea rows="{{ rows }}" name="{{ name }}" id="{{ name }}"{% if placeholder %} placeholder='{{ _(placeholder) if trans else placeholder }}' {% end %}{{ extra }}>{{ form.get(name, default) if form else value }}</textarea>
+</div>
